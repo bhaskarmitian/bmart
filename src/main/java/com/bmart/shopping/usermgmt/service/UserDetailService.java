@@ -22,7 +22,7 @@ public class UserDetailService {
 		return userDetailRepository.saveAll(users);
 	}
 	
-//	public List<UserDetails> getUsersByStatus(String status){
-//		return userDetailRepository.getUsersByStatus(status);
-//	}
+	public List<UserDetails> getUsersByStatus(String status){
+		return userDetailRepository.getUsersByStatus(status);
+	}
 }

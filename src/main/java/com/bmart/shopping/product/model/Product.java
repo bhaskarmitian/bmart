@@ -2,7 +2,9 @@ package com.bmart.shopping.product.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import lombok.NoArgsConstructor;
@@ -13,6 +15,10 @@ import lombok.NoArgsConstructor;
 @Table(name="PRODUCT")
 public class Product {
     @Id
+    //@GeneratedValue(strategy = GeOnerationType.IDENTITY)
+    //@GeneratedValue(strategy=GenerationType.AUTO )
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_seq")
+    @SequenceGenerator(name = "product_seq", sequenceName = "Event_seq",allocationSize = 1)
 	private int id;
 	private String name;
 	private int quantity;

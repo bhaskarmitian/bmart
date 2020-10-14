@@ -12,6 +12,6 @@ import com.bmart.shopping.usermgmt.model.UserDetails;
 @Repository
 public interface UserDetailRepository extends JpaRepository<UserDetails, Long> {
 
-	//@Query("from UserDetails where lower(status)=lower(:status) order by userId desc")
-	//public List<UserDetails> getUsersByStatus(@Param("status") String status);
+	@Query("from UserDetails where lower(status)=lower(:status) order by userId desc")
+	public List<UserDetails> getUsersByStatus(@Param("status") String status);
 }
