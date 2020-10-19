@@ -1,4 +1,4 @@
-package com.bmart.shopping.product.controller;
+package com.bmart.shopping.Cereal.controller;
 
 import java.util.List;
 
@@ -12,17 +12,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bmart.shopping.product.model.Product;
-import com.bmart.shopping.product.service.ProductService;
+import com.bmart.shopping.product.model.Cereal;
+import com.bmart.shopping.product.service.CerealService;
 
 
 @RestController
 @CrossOrigin(origins="http://localhost:3006")
 @RequestMapping("/products")
-public class ProductController {
+public class CerealController {
 
 	@Autowired
-	ProductService  productService;
+	CerealService  productService;
 	
 	//@PostMapping("/addProduct")
 	/*
@@ -31,17 +31,17 @@ public class ProductController {
 	 }*/
 	
 	 @PostMapping("/save")
-	  public List<Product> saveProducts(@RequestBody List<Product> products){ 
+	  public List<Cereal> saveProducts(@RequestBody List<Cereal> products){ 
 		 return productService.saveProducts(products);
 	 }
 	 
 	@GetMapping("")
-	public List<Product> getProducts(){
+	public List<Cereal> getProducts(){
 		return productService.getProducts();
 	}
 	
 	@GetMapping("/{id}")
-	public Product getProductById(@PathVariable int id) {
+	public Cereal getProductById(@PathVariable int id) {
 		return productService.getProductById(id); 
 	}
 
@@ -54,7 +54,7 @@ public class ProductController {
 	   return productService.deleteProduct(id);
     }
 	@PutMapping("/updateProduct")
-	public Product updateProduct(@RequestBody Product product) {
+	public Cereal updateProduct(@RequestBody Cereal product) {
 		return productService.updateProduct(product);
 	}
 	

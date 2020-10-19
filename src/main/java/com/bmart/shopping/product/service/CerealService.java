@@ -7,26 +7,26 @@ import javax.print.attribute.standard.MediaSize.Other;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bmart.shopping.product.model.Product;
-import com.bmart.shopping.product.repository.ProductRepository;
+import com.bmart.shopping.product.model.Cereal;
+import com.bmart.shopping.product.repository.CerealRepository;
 
 @Service
-public class ProductService {
+public class CerealService {
     
 	@Autowired
-	private ProductRepository productRepository;
+	private CerealRepository productRepository;
 	
-	public Product saveProduct(Product product) {
+	public Cereal saveProduct(Cereal product) {
 		return productRepository.save(product);
 	}
-	public List<Product> saveProducts(List<Product> products){
+	public List<Cereal> saveProducts(List<Cereal> products){
 		return productRepository.saveAll(products);
 	}
-	public List<Product> getProducts(){
+	public List<Cereal> getProducts(){
 		return productRepository.findAll();
 	}
 	
-	public Product getProductById(int id){
+	public Cereal getProductById(int id){
 	    return 	productRepository.findById(id).orElse(null);
 	}
 
@@ -39,8 +39,8 @@ public class ProductService {
 		 return "product removed "+id;
 	}
 	
-	public Product updateProduct(Product product) {
-		Product exitingProduct=productRepository.findById(product.getId()).orElse(null);
+	public Cereal updateProduct(Cereal product) {
+		Cereal exitingProduct=productRepository.findById(product.getId()).orElse(null);
 		//exitingProduct.setProductName(product.getProductName());
 		exitingProduct.setName(product.getName());
 		exitingProduct.setQuantity(product.getQuantity());
